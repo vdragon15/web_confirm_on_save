@@ -6,7 +6,7 @@ class BaseModel(models.AbstractModel):
 
     #Inherit this function to decide when confirm dialog will show
     @api.model
-    def check_condition_show_dialog(self, record_id ,data_changed):
+    def check_condition_show_dialog(self, record_id, data_changed):
         """ 
             :param self: current model.
                    record_id: id of record if save on write function, False on create function
