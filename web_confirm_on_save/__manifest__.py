@@ -5,8 +5,6 @@
     'author': 'Vuong Nguyen <vuong.nguyen@besco.vn>',
     "depends": ['web'],    
     'data': ['views/template.xml'],
-    'price': 10.99,
-    'currency': 'USD',
     'installable': True,
     'auto_install': False,
     
