@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Web Confirm On Save Form View',
+    'name': 'Web Dialog Confirm On Save Form View',
     'category': 'BESCO Web OCA',
     'author': 'Vuong Nguyen <vuong.nguyen@besco.vn>',
     "depends": ['web'],    
