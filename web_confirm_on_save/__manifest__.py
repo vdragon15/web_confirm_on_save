@@ -4,6 +4,7 @@
     'category': 'BESCO Web OCA',
     'author': 'Vuong Nguyen <vuong.nguyen@besco.vn>',
     "depends": ['web'],    
+    "images": ["images/capture.png"],
     'data': ['views/template.xml'],
     'installable': True,
     'auto_install': False,
