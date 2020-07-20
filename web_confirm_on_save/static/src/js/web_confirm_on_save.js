@@ -31,7 +31,16 @@ FormController.include({
         return def;
     },
 	
+	checkCanBeSaved: function (recordID) {
+        var fieldNames = this.renderer.canBeSaved(recordID || this.handle);
+        if (fieldNames.length) {
+            return false;
+        }
+        return true;
+    },
+	
 	_onSave: function (ev) {
+		debugger;
 		var self = this;
 		var modelName = this.modelName ? this.modelName : false;
 		var record = this.model.get(this.handle, {raw: true});
@@ -39,12 +48,13 @@ FormController.include({
 		var record_id = data_changed && data_changed.id ? data_changed.id : false;
 		var confirm = self.activeActions.confirm;
 		var alert =  self.activeActions.alert;
+		var canBeSaved = record && record.id ? self.checkCanBeSaved(record.id) : false;
 		function saveAndExecuteAction () {
 			ev.stopPropagation(); // Prevent x2m lines to be auto-saved
 			self._disableButtons();
 			self.saveRecord().then(self._enableButtons.bind(self)).guardedCatch(self._enableButtons.bind(self));
 	    }
-		if(modelName && record && (confirm || alert)){
+		if(canBeSaved && modelName && (confirm || alert)){
 			self.check_condition(modelName, record_id, data_changed).then(function(opendialog){
 	        	if(!opendialog){
 	        		saveAndExecuteAction();
