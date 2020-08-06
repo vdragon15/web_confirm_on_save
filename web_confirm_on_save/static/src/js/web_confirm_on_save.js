@@ -40,7 +40,6 @@ FormController.include({
     },
 	
 	_onSave: function (ev) {
-		debugger;
 		var self = this;
 		var modelName = this.modelName ? this.modelName : false;
 		var record = this.model.get(this.handle, {raw: true});
